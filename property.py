@@ -5,11 +5,11 @@ class Book:
         self.raw_price = raw_price
         self._discounts = 0
 
-    @property
+    @property　#値の取得時に呼び出される
     def discounts(self):
         return self._discounts
 
-    @discounts.setter
+    @discounts.setter　#値の設定時に呼び出される
     def discounts(self, value):
         if value < 0 or 100 < value:
             raise ValueError(
