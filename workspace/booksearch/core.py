@@ -21,14 +21,14 @@ class Book:
             # 画像データから拡張子を判定
             ext = imghdr.what(None, h=thumbnail)
             # pathlib.Pathは/演算子でパスを追加できる
-            base = pathlib.Path(prefix) / f'{self.id}_{kind}'
+            base = pathlib.Path(prefix) /f'{self.id}_{kind}'
             filename = base.with_suffix(f'.{ext}')
             filename.write_bytes(thumbnail)
             paths.append(filename)
-            return paths
+        return paths
 
-    def get_books(q, **params):
-        """書籍検索を行う"""
-        params['q'] = q
-        data = get_json(params)
-        return [Book(item) for item in data['items']]
+def get_books(q, **params):
+    """書籍検索を行う"""
+    params['q'] = q
+    data = get_json(params)
+    return [Book(item) for item in data['items']]
