@@ -11,4 +11,4 @@ def get_data(url):
 
 def build_url(param):
     query = parse.urlencode(param)
-    return ('https://www.googleapis.com'f'/books/v1/volumes?q={query}')
+    return ('https://www.googleapis.com'f'/books/v1/volumes?{query}')
